@@ -21,30 +21,9 @@ router.get('/api/workouts', (req, res) => {
     });
 });
 
-// router.get("/api/workouts", (req, res) => {
-//     Workout.find({})
-//     .then(dbWorkout => {
-//         res.json(dbWorkout);
-//     })
-//     .catch(err => {
-//         res.status(400).json(err);
-//     });
-// });
 
-
-
-
-router.post("/api/workouts", (req, res) => {
-    Workout.create({})
-      .then(dbWorkout => {
-        res.json(dbWorkout);
-      })
-      .catch(err => {
-        res.status(400).json(err);
-      });
-  });
-
-  router.put('/api/workouts/:id', (req, res) => {
+router.put('/api/workouts/:id', (req, res) => {
+    console.log("test2");
     Workout.findOneAndUpdate(req.body, {
       where: {
         _id: req.params._id
@@ -54,16 +33,19 @@ router.post("/api/workouts", (req, res) => {
       .catch(err => res.status(400).json(err))
   });
 
-//create workout
-router.post("/api/workouts", (req, res) => {
-    console.log("WORKOUT TO BE ADDED");
 
-    Workout.create({}).then((dbWorkout => {
-        res.json(dbWorkout);
-    })).catch(err => {
-        res.json(err);
-    });
-});
+// create workout
+router.post("/api/workouts", ({ body }, res) => {
+    console.log("test");
+    Workout.create({ body })
+      .then(workout => {
+        res.json(workout);
+      })
+      .catch(err => {
+        res.status(400).json(err);
+      });
+  });
+
 
 // get workouts in range
 router.get("/api/workouts/range", (req, res) => {
