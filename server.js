@@ -9,7 +9,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/whispering-badlands-35656", {
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/workouts", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   userCreateIndex: true,

@@ -22,15 +22,16 @@ router.get('/api/workouts', (req, res) => {
 });
 
 
-router.put('/api/workouts/:id', (req, res) => {
-    console.log("test2");
-    Workout.findOneAndUpdate(req.body, {
-      where: {
-        _id: req.params._id
-      },
-    })
-      .then(dbWorkout => res.status(200).json(dbWorkout))
-      .catch(err => res.status(400).json(err))
+router.put('/api/workouts/:id', async (req, res) => {
+    try {
+        console.log(req.body)
+        const workout = await Workout.findById(req.params.id)
+        workout.exercises.push(req.body)
+        await workout.save()
+      res.status(200).json(workout)}
+      catch(err) {
+          console.log(err)
+          res.status(400).json(err)}
   });
 
 
