@@ -1,5 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
+require('dotenv').config()
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -9,13 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/whispering-badlands", {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   userCreateIndex: true,
-//   useFindAndModify: false,
-// });
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/whispering-badlands", {
   useNewUrlParser: true,
