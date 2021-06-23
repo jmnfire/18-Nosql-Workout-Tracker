@@ -10,6 +10,13 @@ app.use(express.json());
 app.use(express.static("public"));
 
 
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/whispering-badlands", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   userCreateIndex: true,
+//   useFindAndModify: false,
+// });
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/whispering-badlands", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -28,5 +35,5 @@ app.listen(PORT, () => {
 
 
 
-"mongodb://localhost/whispering-badlands-35656"
-//'mongodb://localhost/workout',
+// "mongodb://localhost/whispering-badlands-35656"
+// 'mongodb://localhost/workout',
