@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workout', {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/whispering-badlands-35656", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   userCreateIndex: true,
@@ -28,4 +28,5 @@ app.listen(PORT, () => {
 
 
 
-//"mongodb://localhost/whispering-badlands-35656"
+"mongodb://localhost/whispering-badlands-35656"
+//'mongodb://localhost/workout',
